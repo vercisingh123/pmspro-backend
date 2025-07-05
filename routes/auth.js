@@ -36,8 +36,10 @@ router.post('/send-otp-signup', async (req, res) => {
 
   const hashedPassword = await bcrypt.hash(password, 10);
   user = await User.create({ name, email, password: hashedPassword, isVerified: false });
-
+const user1 = await User.findOne({ email });
+console.log("User1 is found.", user1);
   const otp = generateOTP();
+  
  console.log("OTP for", email, "is:", otp);
   const hashedOtp = await bcrypt.hash(otp, 10);
 
