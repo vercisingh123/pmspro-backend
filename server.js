@@ -80,4 +80,15 @@ app.use('/api/auth', oauthRoutes);
 
 // --- Start Server ---
 
+// --- Root route ---
+
+app.get('/', (req,res)=>{
+  res.send('Backend is running!');
+});
+
+// --- Status route---
+
+app.get('/status', (req,res)=>{
+res.json({status: 'OK', message:"Backend is healthy!"});
+});
 
