@@ -15,7 +15,7 @@ const app = express();
 
 // --- CORS: Allow credentials for session-based auth ---
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Your frontend
+  origin: process.env.FRONTEND_URL || 'http://65.0.107.174:3000', // Your frontend
   credentials: true
 }));
 
