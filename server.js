@@ -13,6 +13,12 @@ const path = require('path');
 
 const app = express();
 
+// --- CORS: Allow credentials for session-based auth ---
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Your frontend
+  credentials: true
+}));
+
 // app.use(express.json());
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -35,11 +41,7 @@ require('./config/passportSetup');
 
 app.use('/api/auth', authRoutes);
 
-// --- CORS: Allow credentials for session-based auth ---
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000', // Your frontend
-  credentials: true
-}));
+
 
 
 // --- Passport.js session setup ---
