@@ -39,7 +39,6 @@ app.use(session({
 require('./config/passportSetup');
 
 
-app.use('/api/auth', authRoutes);
 
 
 
@@ -51,6 +50,8 @@ app.use(passport.session());
 // // --- Passport: serialize/deserialize user for session support ---
 // passport.serializeUser((user, done) => done(null, user));
 // passport.deserializeUser((user, done) => done(null, user));
+
+app.use('/api/auth', authRoutes);
 
 // --- Routes ---
 const oauthRoutes = require('./routes/oauth');
